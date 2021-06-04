@@ -77,9 +77,13 @@ input.header__input {
   transition: all 100ms ease-in;
 }
 
- .header__input:focus {
-  border-bottom: 2px solid var(--orange);
-}  
+.header__input:focus {
+  border-color: var(--orange);
+}
+
+.header__search-btn path {
+  transition: fill 100ms ease-in;
+}
 
 .header__input:focus + .header__search-btn path {
   fill: var(--orange);
