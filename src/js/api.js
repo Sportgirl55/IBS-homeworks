@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function showItem(response) {
           const el = document.createElement("a");
           el.classList.add("item__link");
-          el.href = "description.html";
+          el.href = "/public/description.html";
 
           el.innerHTML = `
                   <div class="item">

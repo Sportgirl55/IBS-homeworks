@@ -6,19 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="api.js"></script>
-  <!-- <script src="like.js"></script> -->
-  <title>IBS-layout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/styles/styles.css" />
+  <script src="../src/js/api-card.js"></script>
+  <title>Description</title>
 </head>
 
 <body>
   <header class="header">
+
     <div class="header__wrap">
-      <form class="header__search" action="#" method="post" id="search">
-        <input class="header__input" type="search" name="text" placeholder="Search products" />
-        <button class="header__search-btn" type="submit" id="searchBtn">
+      <form class="header__search" action="#" method="post">
+        <input class="header__input" type="search" placeholder="Search products" />
+        <button class="header__search-btn" type="submit">
           <svg class="search__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
@@ -47,15 +47,19 @@
       </div>
     </div>
 
+
   </header>
-  <main class="catalog">
+  <main>
 
-    <div class="item__box">
+    <div class="card">
+      <div class="card__img">
+        <img src="../src/image/image__big.png" alt="" />
+      </div>
 
-      </a>
     </div>
 
   </main>
+
 </body>
 
 </html>
