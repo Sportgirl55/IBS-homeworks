@@ -9,13 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       let response = JSON.parse(xhr.responseText);
-      for (let i = 0; i < response.content.length; i++) {
-        function showItem(response) {
-          const el = document.createElement("a");
-          el.classList.add("item__link");
-          el.href = "/public/description.html";
+      response.content.map((el) => {
+        let elem = document.createElement("a");
+        elem.classList.add("item__link");
+        elem.href = "/public/description.html";
 
-          el.innerHTML = `
+        elem.innerHTML = `
                   <div class="item">
                  
                         <svg class="icon__like" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -25,18 +24,34 @@ document.addEventListener("DOMContentLoaded", () => {
                             fill="#959595" />
                         </svg>
                                        
-                
-                        <img src=${url}/${response.content[i].picture.path} alt=${response.content[i].picture.alt} />
-                        <span class="item__title">${response.content[i].name}</span>
-                        <span class="item__price">${response.content[i].price.currency}${response.content[i].price.value}</span>
+                        <img src=${url}/${el.picture.path} alt=${el.picture.alt} />
+                        <span class="item__title">${el.name}</span>
+                        <span class="item__price">${el.price.currency} ${el.price.value}</span>
                   </div>`;
 
-          document.querySelector(".item__box").append(el);
-        }
-        showItem(response);
-      }
+        document.querySelector(".item__box").append(elem);
+      });
     }
   };
 
   xhr.send();
+});
+
+document.querySelector(".header__input").addEventListener("input", function () {
+  console.log(document.querySelector(".header__input").value);
+  let val = this.value.trim().toLowerCase();
+  let elasticItems = document.querySelectorAll(".item__title");
+  if (val != "") {
+    elasticItems.forEach(function (elem) {
+      if (elem.innerText.toLowerCase().search(val) == -1) {
+        elem.closest(".item").classList.add("hide");
+      } else {
+        elem.closest(".item").classList.remove("hide");
+      }
+    });
+  } else {
+    elasticItems.forEach(function (elem) {
+      elem.closest(".item").classList.remove("hide");
+    });
+  }
 });
