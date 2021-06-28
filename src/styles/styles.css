@@ -130,8 +130,12 @@ input:focus::-webkit-input-placeholder {
   height: 272px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   margin: 8px;
+
+
+  width: 220px;
 }
 
 .item:hover {
@@ -157,8 +161,10 @@ input:focus::-webkit-input-placeholder {
   margin-left: auto;
 }
 
+
 .item img {
   margin-bottom: 8px;
+  margin-top: 30px;
 }
 
 .item__title {
