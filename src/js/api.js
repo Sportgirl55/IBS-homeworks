@@ -2,15 +2,15 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const url = "http://localhost:3006";
-  let xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
 
   xhr.open("GET", `${url}/item`);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      let response = JSON.parse(xhr.responseText);
+      const response = JSON.parse(xhr.responseText);
       response.content.map((el) => {
-        let elem = document.createElement("a");
+        const elem = document.createElement("a");
         elem.classList.add("item__link");
         elem.href = "/public/description.html";
 
@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector(".header__input").addEventListener("input", function () {
   console.log(document.querySelector(".header__input").value);
-  let val = this.value.trim().toLowerCase();
-  let elasticItems = document.querySelectorAll(".item__title");
+  const val = this.value.trim().toLowerCase();
+  const elasticItems = document.querySelectorAll(".item__title");
   if (val != "") {
     elasticItems.forEach(function (elem) {
       if (elem.innerText.toLowerCase().search(val) == -1) {

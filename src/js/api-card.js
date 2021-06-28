@@ -1,14 +1,15 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const url = "http://localhost:3006/";
-  let xhr = new XMLHttpRequest();
 
-  xhr.open("GET", `${url}/item/:itemId`);
+document.addEventListener("DOMContentLoaded", () => {
+  const url = "http://localhost:3006";
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("GET", 'http://localhost:3006/item/${id}');
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      let response = JSON.parse(xhr.responseText).content;
+      const response = JSON.parse(xhr.responseText).content;
       function showItem(response) {
         const el = document.createElement("div");
         el.classList.add("card");
@@ -24,21 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2 class="product__desc">Details</h2>
           <p>${response.details}</p>
         </div>
-
         <div class="card__order-wrap">
           <div class="card__order">
             <span class="card__order-price">${response.price.currency} ${response.price.value}</span>
           </div>
-
           <div class="card__order-quantity">
             <div class="card__btns-box">
               <button class="card__control-btn">&#8722;</button>
               <input type="number" />
               <button class="card__control-btn">+</button>
             </div>
-
             <button class="card__order-btn" type="submit">Add to cart</button>
-
           </div>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
